@@ -6,6 +6,7 @@ const serverless = require('serverless-http')
 
 const router = express.Router()
 
+/*
 router.get('/', async(req, res)=>{
     //  axios.get('https://wholesomeness.com/wp-json/wp/v2/posts').then((data)=>{
     //     res.setHeader('Content-Type', 'application/json');
@@ -16,6 +17,16 @@ router.get('/', async(req, res)=>{
      res.send(data.data)
      
 })
+*/
+
+
+router.get('/:id', async(req, res)=>{ 
+    const data = await axios.get('https://wholesomeness.com/wp-json/wp/v2/posts/'+req.params.id)
+     res.setHeader('Content-Type', 'text/html');
+     res.send(data.data.content.rendered)     
+})
+
+
 
 router.get('/test', (req, res)=>{
     res.json({
