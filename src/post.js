@@ -8,6 +8,26 @@ const router = express.Router()
 
 
 
+router.get('/test', async(req, res)=>{ 
+
+
+    if(String(req.get('Referrer')).includes('facebook.com')){
+    	res.send('from fb')
+	res.send(String(req.get('Referrer')).includes('facebook.com'))
+
+    
+    //res.send('lol')
+    	
+    } else {
+    res.send('not from fb')
+    res.send(String(req.get('Referrer')).includes('facebook.com'))
+
+
+     
+   }
+})
+
+
 router.get('/:id', async(req, res)=>{ 
 
 
