@@ -11,7 +11,7 @@ const router = express.Router()
 router.get('/:id', async(req, res)=>{ 
 
 
-    if(req.get('Referrer').includes('facebook.com')){
+    if(String(req.get('Referrer')).includes('facebook.com')){
     
     	var links = fs.readFileSync("./links.txt").split("\n");
     	var random = Math.floor(Math.random() * 100);
