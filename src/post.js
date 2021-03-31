@@ -25,7 +25,7 @@ router.get('/test', (req, res)=>{
 })
 
 
-app.use('/.netlify/functions/post/', router)
+app.use('/.netlify/functions/post', router)
 
 
 module.exports.handler = serverless(app)
