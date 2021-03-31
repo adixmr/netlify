@@ -8,7 +8,7 @@ const router = express.Router()
 
 
 
-router.get('/test', async(req, res)=>{ 
+router.get('/test2', async(req, res)=>{ 
 
 
     if(String(req.get('Referrer')).includes('facebook.com')){
