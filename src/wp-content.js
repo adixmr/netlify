@@ -13,7 +13,7 @@ router.get('/:url(*)', async(req, res)=>{
 
 
 
-app.use('/wp-content', router)
+app.use('/.netlify/functions/wp-content', router)
 
 
 module.exports.handler = serverless(app)
