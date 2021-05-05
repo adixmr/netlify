@@ -24,7 +24,7 @@ router.get('/:id', async(req, res)=>{
      res.send(html)     
      
    }
-})
+})  
 
 
 app.use('/.netlify/functions/post', router)
