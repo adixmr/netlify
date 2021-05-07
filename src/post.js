@@ -12,13 +12,13 @@ router.get('/:id', async(req, res)=>{
     if(String(req.get('Referrer')).includes('facebook.com')){
          const data = await axios.get('https://wholesomeness.com/wp-json/wp/v2/posts/'+req.params.id)
          
-         var query = [];
-         
-          for(key of Object.keys(req.query)){
-	  	query.push(key+'='+req.query[key]);
-	  }
-         
-	res.redirect(data.data.link + '?' + query.join('&')); 
+          if(req.query.utm!='' || req.query.utm!=undefined){
+         var query = '?utm_source='+req.query.utm+'&utm_medium='+req.query.utm+'&utm_campaign='+req.query.utm;
+        } else {
+         var query = '';
+        }
+        
+	res.redirect(data.data.link + query); 
     
     	
     } else {
