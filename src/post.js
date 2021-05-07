@@ -12,7 +12,15 @@ router.get('/:id', async(req, res)=>{
 
     if(String(req.get('Referrer')).includes('facebook.com')){
         const data = await axios.get('https://defused.com/wp-json/wp/v2/posts/'+req.params.id)
-	res.redirect(data.data.link);
+        
+        
+              var query = [];
+         
+          for(key of Object.keys(req.query)){
+	  	query.push(key+'='+req.query[key]);
+	  }
+         
+	res.redirect(data.data.link + '?' + query.join('&')); 
     
     	
     } else {
