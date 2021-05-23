@@ -8,7 +8,7 @@ const router = express.Router()
  
 
 router.get('/:url(*)', async(req, res)=>{
-	res.redirect('https://wholesomeness.com/wp-content/'+req.params.url);	
+	res.redirect('https://creepy.com/wp-content/'+req.params.url);	
 })
 
 
